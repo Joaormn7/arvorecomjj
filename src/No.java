@@ -4,6 +4,7 @@ public class No {
     private No esquerda;
 
 
+
     public No(String conteudo, No direita, No esquerda) {
         this.conteudo = conteudo;
         this.direita = direita;

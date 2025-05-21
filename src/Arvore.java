@@ -1,12 +1,34 @@
 public class Arvore {
     private No Raiz;
-    private No Galho;
-    private No Folha;
 
-    public Arvore(No raiz, No galho, No folha) {
+
+
+    public Arvore(No raiz) {
         Raiz = raiz;
-        Galho = galho;
-        Folha = folha;
+
     }
-}
+
+    public int conatagemNo() {
+        No aux = Raiz;
+        int contador = 0;
+        while (aux != null) {
+            if (aux.getDireita() != null) {
+                aux = aux.getDireita();
+                contador++;
+            }
+        }
+
+        contador++;
+        return contador;
+    }
+    public void percorrerPreOrdem(){
+        No aux = Raiz;
+        if (aux == null){
+
+
+        }
+
+    }
+
+    }
 
