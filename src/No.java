@@ -2,13 +2,14 @@ public class No {
     private String conteudo;
     private No direita;
     private No esquerda;
+    private int fatorbalanceamento;
 
 
-
-    public No(String conteudo, No direita, No esquerda) {
+    public No(String conteudo, No direita, No esquerda, int balanceamento) {
         this.conteudo = conteudo;
         this.direita = direita;
         this.esquerda = esquerda;
+        this.fatorbalanceamento = 0;
     }
 
     public String getConteudo() {
@@ -33,5 +34,13 @@ public class No {
 
     public void setEsquerda(No esquerda) {
         this.esquerda = esquerda;
+    }
+
+    public int getBalanceamento() {
+        return fatorbalanceamento;
+    }
+
+    public void setBalanceamento(int balanceamento) {
+        this.fatorbalanceamento = balanceamento;
     }
 }
