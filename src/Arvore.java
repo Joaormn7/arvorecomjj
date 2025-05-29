@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Arvore {
     private No Raiz;
@@ -17,11 +18,11 @@ public class Arvore {
     }
 
     public void percorrerPreOrdem(No node){
-       if(node != null){
-           System.out.println(node.getConteudo()+" ");
-           percorrerPreOrdem(node.getEsquerda());
-           percorrerPreOrdem(node.getDireita());
-       }
+        if(node != null){
+            System.out.println(node.getConteudo()+" ");
+            percorrerPreOrdem(node.getEsquerda());
+            percorrerPreOrdem(node.getDireita());
+        }
     }
     public void percorrerEmOrdem(No node) {
         if (node != null) {
@@ -30,13 +31,13 @@ public class Arvore {
             percorrerEmOrdem(node.getDireita());
         }
     }
-        public void percorrerPosOrdem(No node) {
-            if(node != null){
-                percorrerPosOrdem(node.getEsquerda());
-                percorrerPosOrdem(node.getDireita());
-                System.out.println(node.getConteudo()+" ");
-            }
+    public void percorrerPosOrdem(No node) {
+        if(node != null){
+            percorrerPosOrdem(node.getEsquerda());
+            percorrerPosOrdem(node.getDireita());
+            System.out.println(node.getConteudo()+" ");
         }
+    }
 
     public void buscaEmNivel() {
         if (Raiz == null) return;
@@ -52,20 +53,35 @@ public class Arvore {
             if (atual.getDireita() != null) fila.add(atual.getDireita());
         }
     }
-    //grande kleytão eterno
-    public int conatagemNoRecursivo() {
-    int contador = 0;
-    No aux = this.Raiz;
-    if (aux.getDireita() != null){
-        contador++;
+    public int contarNosFolhas(No no) {
+        if (no == null) {
+            return 0;
+        }
+        if (no.getEsquerda() == null && no.getDireita() == null) {
+            return 1;
+        }
+        return contarNosFolhas(no.getEsquerda()) + contarNosFolhas(no.getDireita());
     }
+    public int contarNosFolhasSemRecursividade() {
+        if (Raiz == null) return 0;
 
-    }
+        int contador = 0;
+        Stack<No> pilha = new Stack<>();
+        pilha.push(Raiz);
 
-        return 0;
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+
+            if (atual.getEsquerda() == null && atual.getDireita() == null) {
+                contador++;
+            }
+
+            if (atual.getDireita() != null) pilha.push(atual.getDireita());
+            if (atual.getEsquerda() != null) pilha.push(atual.getEsquerda());
+        }
+
+        return contador;
     }
 
 
 }
-
-
