@@ -3,6 +3,7 @@ public class No {
     private No direita;
     private No esquerda;
     private int fatorbalanceamento;
+    private int altura;
 
 
     public No(String conteudo, No direita, No esquerda, int balanceamento) {
