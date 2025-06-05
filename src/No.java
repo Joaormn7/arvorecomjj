@@ -3,9 +3,13 @@ public class No {
     private No direita;
     private No esquerda;
     private int fatorbalanceamento;
-    private int altura;
+    private int altura, chave;
 
 
+    No(int valor){
+        chave = valor;
+        altura = 1;
+    }
     public No(String conteudo, No direita, No esquerda, int balanceamento) {
         this.conteudo = conteudo;
         this.direita = direita;
