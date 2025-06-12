@@ -83,33 +83,5 @@ public class Arvore {
         return contador;
     }
 
-    public void insercaoArvoreAvl () {
-        No aux = this.Raiz;
-
-        if (aux == null) {
-            return;
-        }
-
-        Stack<No> pilha = new Stack<>();
-        pilha.push(Raiz);
-        while (!pilha.isEmpty()) {
-            if (aux.getBalanceamento() < -1) {
-                pilha.push(aux.getEsquerda());
-                pilha.add(aux.getEsquerda());
-            }
-            if (aux.getBalanceamento() < 0) {
-                pilha.push(aux.getEsquerda());
-                pilha.add(aux.getEsquerda());
-            }
-            if (aux.getBalanceamento() > 0) {
-                pilha.push(aux.getDireita());
-                pilha.add(aux.getDireita());
-            }
-            if (aux.getBalanceamento() < 1) {
-                pilha.push(aux.getDireita());
-                pilha.add(aux.getDireita());
-            }
-        }
-    }
 
 }

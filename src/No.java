@@ -1,36 +1,28 @@
 public class No {
-    private String conteudo;
-    private No direita;
+    private int conteudo;
+    private int altura;
     private No esquerda;
-    private int fatorbalanceamento;
-    private int altura, chave;
+    private No direita;
 
-
-    No(int valor){
-        chave = valor;
-        altura = 1;
-    }
-    public No(String conteudo, No direita, No esquerda, int balanceamento) {
+    public No(int conteudo) {
         this.conteudo = conteudo;
-        this.direita = direita;
-        this.esquerda = esquerda;
-        this.fatorbalanceamento = 0;
+        this.altura = 1; // altura começa em 1 (se for AVL, por exemplo)
     }
 
-    public String getConteudo() {
+    public int getConteudo() {
         return conteudo;
     }
 
-    public void setConteudo(String conteudo) {
+    public void setConteudo(int conteudo) {
         this.conteudo = conteudo;
     }
 
-    public No getDireita() {
-        return direita;
+    public int getAltura() {
+        return altura;
     }
 
-    public void setDireita(No direita) {
-        this.direita = direita;
+    public void setAltura(int altura) {
+        this.altura = altura;
     }
 
     public No getEsquerda() {
@@ -41,11 +33,15 @@ public class No {
         this.esquerda = esquerda;
     }
 
-    public int getBalanceamento() {
-        return fatorbalanceamento;
+    public No getDireita() {
+        return direita;
     }
 
-    public void setBalanceamento(int balanceamento) {
-        this.fatorbalanceamento = balanceamento;
+    public void setDireita(No direita) {
+        this.direita = direita;
+    }
+
+    public int getChave() {
+        return conteudo;
     }
 }
